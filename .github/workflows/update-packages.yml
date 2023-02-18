@@ -43,8 +43,6 @@ jobs:
         chmod +x packages.sh
         git clone https://github.com/firker/diy-ziyong.git diy-ziyong
         cd diy-ziyong
-        rm -Rf *
-        git rm --cache *
         $GITHUB_WORKSPACE/packages.sh
 
     - name: Upload
