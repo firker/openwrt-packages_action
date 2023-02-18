@@ -1,12 +1,7 @@
 #!/bin/bash
-rm -rf ./adguardhome     
-rm -rf ./cpulimit        
-rm -rf ./luci-app-cpulimit        
-rm -rf ./luci-app-onliner
-rm -rf ./smartdns
+rm -rf adguardhome cpulimit luci-app-cpulimit luci-app-onliner smartdns
 rm -rf ./theme/luci-theme-design
-rm -rf luci-theme-tomato luci-theme-Butterfly-dark luci-theme-Butterfly luci-theme-argon-lr luci-theme-argon_new luci-theme-argon-mod luci-theme-atmaterial luci-theme-atmaterial_new luci-theme-btmod luci-theme-design luci-theme-bootstrap-mod luci-theme-ifit luci-theme-opentomato luci-theme-opentomcat luci-theme-infinityfreedom luci-theme-rosy luci-theme-rosyy
-          
+
 svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome
 svn co https://github.com/haiibo/openwrt-packages/trunk/cpulimit
 svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-cpulimit
@@ -20,4 +15,5 @@ rm -rf ./*/.git
 rm -rf ./*/.svn 
 rm -f .gitattributes .gitignore
 rm -rf .github
+rm -rf ./*/.github
 exit 0
