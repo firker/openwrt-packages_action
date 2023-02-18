@@ -11,7 +11,7 @@ svn co https://github.com/haiibo/openwrt-packages/trunk/cpulimit
 svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-cpulimit
 svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
-git clone https://github.com/gngpp/luci-theme-design.git theme/luci-theme-design
+git clone https://github.com/gngpp/luci-theme-design.git /theme/luci-theme-design
 sed -i 's/默认用户名密码都是root/默认用户名密码都是AdGuardHome/g' ./adguardhome/patches/default_username.patch 
 
 rm -rf .svn
