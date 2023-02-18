@@ -1,4 +1,6 @@
 #!/bin/bash
+rm -Rf *
+git rm --cache *
 svn co https://github.com/immortalwrt/packages/trunk/net/adguardhome
 svn co https://github.com/immortalwrt/packages/trunk/net/gost
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome ./luci-app-adguardhome
