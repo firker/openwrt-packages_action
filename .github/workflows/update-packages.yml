@@ -7,8 +7,8 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: 0 */12 * * *
+#  schedule:
+#    - cron: 0 */12 * * *
   watch:
     types: started
   workflow_dispatch:
@@ -41,8 +41,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x packages.sh
-        git clone -b packages https://github.com/liuran001/openwrt-packages.git packages
-        cd packages
+        git clone https://github.com/firker/diy-ziyong.git diy-ziyong
+        cd diy-ziyong
         rm -Rf *
         git rm --cache *
         $GITHUB_WORKSPACE/packages.sh
@@ -50,10 +50,10 @@ jobs:
     - name: Upload
       run: |
         [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/packages
-        cd $GITHUB_WORKSPACE/packages
+        cd $GITHUB_WORKSPACE/diy-ziyong
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
-        git push --quiet "https://${{ secrets.TOKEN }}@github.com/liuran001/openwrt-packages.git"
+        git push --quiet "https://${{ secrets.TOKEN }}@github.com/firker/diy-ziyong.git"
  
 
  
