@@ -1,5 +1,4 @@
 #!/bin/bash
-rm -rf ./theme
 rm -rf ./adguardhome     
 rm -rf ./cpulimit        
 rm -rf ./luci-app-cpulimit        
