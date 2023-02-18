@@ -4,9 +4,9 @@ on:
   repository_dispatch:
   release:
     types: published
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
 #  schedule:
 #    - cron: 0 */12 * * *
   watch:
