@@ -43,6 +43,8 @@ jobs:
         chmod +x helloword.sh
         git clone https://github.com/firkerword/openwrt_helloworld.git helloworld
         cd helloworld
+        rm -Rf *
+        git rm --cache *
         $GITHUB_WORKSPACE/helloword.sh
     - name: Upload
       run: |
