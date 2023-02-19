@@ -1,11 +1,12 @@
 #!/bin/bash
 
 git clone https://github.com/jerrykuku/luci-app-vssr.git
+git clone https://github.com/jerrykuku/lua-maxminddb.git
 git clone https://github.com/fw876/helloworld.git
 git clone https://github.com/immortalwrt/homeproxy.git luci-app-homeproxy
 git clone https://github.com/xiaorouji/openwrt-passwall.git
 git clone https://github.com/xiaorouji/openwrt-passwall2.git luci-app-passwall2
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git ./
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci luci-app-passwall
 
 rm -rf .svn
 rm -rf ./*/.git
