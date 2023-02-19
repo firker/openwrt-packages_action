@@ -41,7 +41,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x helloword.sh
-        git clone https://github.com/firkerword/helloworld.git helloworld
+        git clone https://github.com/firkerword/openwrt-helloworld.git helloworld
         cd helloworld
         rm -Rf *
         git rm --cache *
@@ -52,5 +52,5 @@ jobs:
         cd $GITHUB_WORKSPACE/helloworld
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
-        git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/helloworld.git"
+        git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
  
