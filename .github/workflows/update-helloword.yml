@@ -52,5 +52,5 @@ jobs:
         cd $GITHUB_WORKSPACE/helloworld
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
-        git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt_helloworld.git"
+        git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/helloworld.git"
  
