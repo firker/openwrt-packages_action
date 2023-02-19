@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf !(.github)
+rm -Rf *
 git rm --cache *
 
 git clone https://github.com/jerrykuku/luci-app-vssr.git
