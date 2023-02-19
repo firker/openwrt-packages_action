@@ -47,7 +47,7 @@ jobs:
 
     - name: Upload
       run: |
-        [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/packages
+        [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/diy-ziyong
         cd $GITHUB_WORKSPACE/diy-ziyong
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
