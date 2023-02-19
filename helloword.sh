@@ -1,6 +1,4 @@
 #!/bin/bash
-rm -Rf *
-git rm --cache *
 
 git clone https://github.com/jerrykuku/luci-app-vssr.git
 git clone https://github.com/fw876/helloworld.git
