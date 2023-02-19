@@ -41,13 +41,13 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x helloword.sh
-        git clone https://github.com/firkerword/openwrt_helloworld.git openwrt_helloworld
-        cd openwrt_helloworld
+        git clone https://github.com/firkerword/openwrt_helloworld.git helloworld
+        cd helloworld
         $GITHUB_WORKSPACE/helloword.sh
     - name: Upload
       run: |
-        [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/openwrt_helloworld
-        cd $GITHUB_WORKSPACE/openwrt_helloworld
+        [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/helloworld
+        cd $GITHUB_WORKSPACE/helloworld
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
         git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt_helloworld.git"
