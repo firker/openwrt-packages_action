@@ -8,6 +8,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git
 git clone https://github.com/xiaorouji/openwrt-passwall2.git luci-app-passwall2
 git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall passwall && mv -n passwall/luci-app-passwall ./;rm -rf passwall
 git clone https://github.com/firkerword/luci-app-smartdns.git
+git clone https://github.com/firkerword/smartdns.git
 
 rm -rf .svn
 rm -rf ./*/.git
