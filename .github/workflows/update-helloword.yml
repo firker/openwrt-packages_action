@@ -50,7 +50,8 @@ jobs:
       run: |
         [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/helloworld
         cd $GITHUB_WORKSPACE/helloworld
+        Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
         git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
-
+ 
