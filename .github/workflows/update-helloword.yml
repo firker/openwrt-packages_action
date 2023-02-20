@@ -52,10 +52,5 @@ jobs:
         cd $GITHUB_WORKSPACE/helloworld
         git add .
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
-#        git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
-   
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.FTOKEN }}
-        branch: master
+        git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
+
