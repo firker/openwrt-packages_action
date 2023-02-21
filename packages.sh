@@ -11,7 +11,7 @@ svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/gngpp/luci-theme-design.git theme/luci-theme-design
 sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' adguardhome/patches/default_username.patch 
-sed -i 's/control/system/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/\<control\>/system/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 rm -rf .svn
 rm -rf ./*/.git
