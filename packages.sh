@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -rf adguardhome cpulimit luci-app-cpulimit luci-app-onliner smartdns luci-app-homeassistant
-rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-theme-tomato
+rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
