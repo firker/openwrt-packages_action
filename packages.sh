@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -rf adguardhome cpulimit luci-app-cpulimit luci-app-onliner smartdns luci-app-homeassistant
-rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat
+rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config 
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
@@ -11,6 +11,7 @@ svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 svn co https://github.com/linkease/istore-packages/trunk/luci-app-homeassistant
 git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/gngpp/luci-theme-design.git theme/luci-theme-design
+git clone https://github.com/gngpp/luci-app-design-config.git theme/luci-theme-design-config
 git clone https://github.com/uparrows/luci-theme-atmaterial.git theme/luci-theme-atmaterial
 git clone https://github.com/kenzok8/luci-theme-ifit.git theme/luci-theme-ifit
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git theme/luci-theme-opentopd
