@@ -55,3 +55,15 @@ jobs:
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
         git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
  
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.PAT }}
+        repository: firkerword/openwrt-helloworld
+        event-type: passwall x86-64
+        
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 3
+        keep_minimum_runs: 3
