@@ -49,6 +49,7 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
         event-type: Update helloword
+        
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
