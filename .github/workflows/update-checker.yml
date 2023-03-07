@@ -42,6 +42,14 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
+        
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 2
+          keep_minimum_runs: 3
 
     - name: Repository Dispatch
       if: steps.cacheHash.outputs.cache-hit != 'true'
@@ -49,9 +57,3 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
         event-type: Update helloword
-        
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
