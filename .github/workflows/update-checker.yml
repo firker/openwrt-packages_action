@@ -17,8 +17,8 @@ env:
 
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: 0 * * * *
+  schedule:
+    - cron: 0 */12 * * *
 
 jobs:
   check:
@@ -42,12 +42,12 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
+        
     - name: Trigger build
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v2
       with:
-        token: ${{ secrets.PAT }}
-        event-type: Source Code Update
+        event-type: Helloword Update
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
