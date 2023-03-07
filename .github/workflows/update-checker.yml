@@ -42,11 +42,12 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
-        
+
     - name: Repository Dispatch
       if: steps.cacheHash.outputs.cache-hit != 'true'
-      uses: peter-evans/repository-dispatch@v2.1.1
+      uses: peter-evans/repository-dispatch@main
       with:
+        token: ${{ secrets.PAT }}
         event-type: Update helloword
 
     - name: Delete workflow runs
