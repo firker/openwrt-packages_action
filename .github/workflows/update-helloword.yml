@@ -41,7 +41,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x helloword.sh
-        git clone -b master https://github.com/firkerword/openwrt-helloworld.git helloworld
+        git clone https://github.com/firkerword/openwrt-helloworld.git helloworld
         cd helloworld
         rm -Rf *
         git rm --cache *
@@ -56,7 +56,7 @@ jobs:
         git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
  
     - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@main
       with:
         token: ${{ secrets.PAT }}
         repository: firkerword/openwrt-helloworld
@@ -65,5 +65,5 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 3
+        retain_days: 1
         keep_minimum_runs: 3
