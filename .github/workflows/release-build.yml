@@ -1,0 +1,88 @@
+name: build
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'build tag, eg: "插件名称".'
+        required: true
+        default: ''
+env:
+  TZ: Asia/Shanghai
+jobs:
+  build:
+    name: Build ${{ matrix.arch }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - aarch64_cortex-a53
+          - aarch64_cortex-a72
+          - aarch64_generic
+          - arm_arm1176jzf-s_vfp
+          - arm_arm926ej-s
+          - arm_cortex-a15_neon-vfpv4
+          - arm_cortex-a5_vfpv4
+          - arm_cortex-a7
+          - arm_cortex-a7_neon-vfpv4
+          - arm_cortex-a8_vfpv3
+          - arm_cortex-a9
+          - arm_cortex-a9_neon
+          - arm_cortex-a9_vfpv3-d16
+          - arm_fa526
+          - arm_mpcore
+          - arm_xscale
+          - i386_pentium-mmx
+          - i386_pentium4
+          - mips64_octeonplus
+          - mips_24kc
+          - mips_4kec
+          - mips_mips32
+          - mipsel_24kc
+          - mipsel_24kc_24kf
+          - mipsel_74kc
+          - mipsel_mips32
+          - x86_64
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+    - name: Clone packages
+      run: |
+        cd $GITHUB_WORKSPACE
+        chmod +x app.sh
+        $GITHUB_WORKSPACE/app.sh
+        
+      - name: Build
+        uses: sbwml/openwrt-gh-action-sdk@go1.20
+        env:
+          ARCH: ${{ matrix.arch }}-openwrt-21.02
+          FEEDNAME: packages_ci
+          PACKAGES: ${{ github.event.inputs.tag }}
+          NO_REFRESH_CHECK: true
+          
+      - name: Time Work
+        run:
+          echo "TAG_TIME=$(date +"%Y%m%d")" >> $GITHUB_ENV
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.arch }}
+          path: bin/packages/${{ matrix.arch }}/packages_ci/*.ipk
+
+      - name: Upload packages
+        uses: ncipollo/release-action@v1
+        with:
+          name: "${{ github.event.inputs.tag }}-${{ matrix.arch }}-${{ env.TAG_TIME }}"
+          token: ${{ secrets.TOKEN }}
+          allowUpdates: true
+          replacesArtifacts: true
+          tag: "${{ github.event.inputs.tag }}-${{ env.TAG_TIME }}"
+          body: |
+            ${{ github.event.inputs.tag }} for OpemWrt.
+          artifacts: "bin/packages/${{ matrix.arch }}/packages_ci/*.ipk"
