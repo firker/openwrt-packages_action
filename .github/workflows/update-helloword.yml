@@ -1,16 +1,16 @@
 name: Update helloword
 
 on:
-  repository_dispatch:
-  release:
-    types: published
+#  repository_dispatch:
+#  release:
+#    types: published
 #  push:
 #    branches:
 #      - main
 #  schedule:
 #    - cron: 1 0 */3 * *
-  watch:
-    types: started
+#  watch:
+#    types: started
   workflow_dispatch:
 
 env:
