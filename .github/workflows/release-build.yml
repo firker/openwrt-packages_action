@@ -53,10 +53,11 @@ jobs:
       - name: Upload packages
         uses: ncipollo/release-action@v1
         with:
-          name: "${{ github.event.inputs.tag }}-${{ env.TAG_TIME }}"
+          name: "${{ github.event.inputs.tag }}"
           token: ${{ secrets.PAT }}
           allowUpdates: true
           replacesArtifacts: true
+          removeArtifacts: true
           tag: "${{ github.event.inputs.tag }}-${{ env.TAG_TIME }}"
           body: |
             ${{ github.event.inputs.tag }} for OpemWrt.
