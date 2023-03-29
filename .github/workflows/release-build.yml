@@ -58,7 +58,7 @@ jobs:
           allowUpdates: true
           replacesArtifacts: true
           removeArtifacts: true
-          tag: "${{ github.event.inputs.tag }}-${{ env.TAG_TIME }}"
+          tag: "${{ github.event.inputs.tag }}"
           body: |
             ${{ github.event.inputs.tag }} for OpemWrt.
           artifacts: "bin/packages/${{ matrix.arch }}/packages_ci/*.ipk"
