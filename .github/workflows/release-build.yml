@@ -36,7 +36,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           chmod +x app.sh
           $GITHUB_WORKSPACE/app.sh
-        
+          sed -i "/PKG_VERSION/s/$/-${{ github.event.inputs.release }}/" ./luci-app-passwall/Makefile
       - name: Build
         uses: sbwml/openwrt-gh-action-sdk@go1.20
         env:
