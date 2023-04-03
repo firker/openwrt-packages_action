@@ -8,10 +8,6 @@ on:
         description: 'build tag, eg: "插件名称".'
         required: true
         default: ''
-      release:
-        description: 'build release, eg: "插件版本".'
-        required: true
-        default: ''
         
 env:
   TZ: Asia/Shanghai
@@ -36,7 +32,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           chmod +x app.sh
           $GITHUB_WORKSPACE/app.sh
-          sed -i "/PKG_VERSION/s/$/-${{ github.event.inputs.release }}/" ./luci-app-passwall/Makefile
+
       - name: Build
         uses: sbwml/openwrt-gh-action-sdk@go1.20
         env:
