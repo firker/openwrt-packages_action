@@ -8,6 +8,11 @@ on:
         description: 'build tag, eg: "插件名称".'
         required: true
         default: ''
+      release:
+        description: 'build release, eg: "插件版本".'
+        required: true
+        default: ''
+        
 env:
   TZ: Asia/Shanghai
   
