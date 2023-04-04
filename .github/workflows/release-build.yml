@@ -58,7 +58,6 @@ jobs:
           token: ${{ secrets.PAT }}
           allowUpdates: true
           replacesArtifacts: true
-          removeArtifacts: true
           tag: "${{ github.event.inputs.tag }}"
           body: |
             ${{ github.event.inputs.tag }} for OpemWrt.
