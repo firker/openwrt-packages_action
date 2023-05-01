@@ -18,7 +18,7 @@ git clone https://github.com/sirpdboy/luci-theme-opentopd.git theme/luci-theme-o
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git theme/luci-theme-infinityfreedom
 git clone https://github.com/thinktip/luci-theme-neobird.git theme/luci-theme-neobird
 git clone https://github.com/sirpdboy/luci-theme-kucat.git theme/luci-theme-kucat
-chmod 755 /luci-app-adguardhome/root/etc/init.d/AdGuardHome
+chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
 
 sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' adguardhome/patches/default_username.patch 
 sed -i 's/\<control\>/system/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
