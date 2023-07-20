@@ -4,11 +4,12 @@ rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/l
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
-svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-autotimeset
+# svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-autotimeset
 svn co https://github.com/haiibo/openwrt-packages/trunk/cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 svn co https://github.com/linkease/istore-packages/trunk/luci-app-homeassistant
+git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
 git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/gngpp/luci-theme-design.git theme/luci-theme-design
 git clone https://github.com/gngpp/luci-app-design-config.git theme/luci-theme-design-config
