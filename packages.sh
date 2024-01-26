@@ -19,7 +19,7 @@ rm -rf package; mkdir package
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/adguardhome
 merge_package https://github.com/sirpdboy/sirpdboy-package sirpdboy-package/luci-app-adguardhome
 merge_package https://github.com/sirpdboy/sirpdboy-package sirpdboy-package/luci-app-autotimeset
-merge_package https://github.com/haiibo/openwrt-packages openwrt-packages/cpulimit
+# merge_package https://github.com/haiibo/openwrt-packages openwrt-packages/cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 merge_package https://github.com/linkease/istore-packages istore-packages/luci-app-homeassistant
