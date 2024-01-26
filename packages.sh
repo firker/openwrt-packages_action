@@ -5,16 +5,16 @@ rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/l
 function merge_package(){
     repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
     pkg=`echo $2 | rev | cut -d'/' -f 1 | rev`
-    # find package/ -follow -name $pkg -not -path "package/custom/*" | xargs -rt rm -rf
+    # find package/ -follow -name $pkg -not -path "package/*" | xargs -rt rm -rf
     git clone --depth=1 --single-branch $1
-    mv $2 package/custom/
+    mv $2 package/
     rm -rf $repo
 }
 function drop_package(){
-    find package/ -follow -name $1 -not -path "package/custom/*" | xargs -rt rm -rf
+    find package/ -follow -name $1 -not -path "package/*" | xargs -rt rm -rf
 }
 
-rm -rf package/custom; mkdir package/custom
+rm -rf package; mkdir package
 
 merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/adguardhome
 merge_package https://github.com/sirpdboy/sirpdboy-package sirpdboy-package/luci-app-adguardhome
@@ -35,9 +35,9 @@ git clone https://github.com/thinktip/luci-theme-neobird.git theme/luci-theme-ne
 git clone https://github.com/sirpdboy/luci-theme-kucat.git theme/luci-theme-kucat
 chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
 
-sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/custom/adguardhome/patches/default_username.patch 
-sed -i 's/\<control\>/system/g' package/custom/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/\<Control\>/System/g' package/custom/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/adguardhome/patches/default_username.patch 
+sed -i 's/\<control\>/system/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/\<Control\>/System/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 rm -rf .svn
 rm -f .gitattributes .gitignore
