@@ -1,7 +1,7 @@
 #!/bin/bash
 rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns
 # rm -rf ./theme/*
-rm -rf ./*/luci-app-wrtbwmon-zh rm -rf ./*/wrtbwmon ./*/lua-maxminddb ./*/smartdns ./*/luci-app-poweroff ./*/adguardhome ./*/luci-app-adguardhome
+rm -rf ./luci-app-wrtbwmon-zh wrtbwmon lua-maxminddb smartdns luci-app-poweroff
 rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config ./*/luci-theme-kucat
 
 function merge_package(){
