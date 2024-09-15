@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns
-rm -rf ./theme/*
+# rm -rf ./theme/*
 rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config 
 
 function merge_package(){
