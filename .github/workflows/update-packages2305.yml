@@ -40,7 +40,7 @@ jobs:
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
-        chmod +x packages.sh
+        chmod +x packages2305.sh
         git clone https://github.com/firker/diy-ziyong  -b 2305 diy-ziyong
         cd diy-ziyong
         $GITHUB_WORKSPACE/packages2305.sh
