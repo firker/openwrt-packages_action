@@ -1,0 +1,56 @@
+name: Update packages2305
+
+on:
+  repository_dispatch:
+  release:
+    types: published
+#  push:
+#    branches:
+#      - main
+  schedule:
+    - cron: 0 18 */3 * *
+  watch:
+    types: started
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  merge:
+    runs-on: Ubuntu-22.04
+    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
+        
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install git subversion git-core wget
+        sudo timedatectl set-timezone "$TZ"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        
+    - name: Clone packages
+      run: |
+        cd $GITHUB_WORKSPACE
+        chmod +x packages.sh
+        git clone https://github.com/firker/diy-ziyong  -b 2305 diy-ziyong
+        cd diy-ziyong
+        $GITHUB_WORKSPACE/packages2305.sh
+
+    - name: Upload
+      run: |
+        cd $GITHUB_WORKSPACE/diy-ziyong
+        git add .
+        git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
+        git push --quiet "https://${{ secrets.TOKEN }}@github.com/firker/diy-ziyong.git"
+ 
+
+ 
