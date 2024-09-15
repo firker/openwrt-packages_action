@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns
 # rm -rf ./theme/*
+rm -rf ./*/luci-app-wrtbwmon-zh rm -rf ./*/wrtbwmon ./*/lua-maxminddb ./*/smartdns ./*/luci-app-poweroff ./*/adguardhome ./*/luci-app-adguardhome
 rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config ./*/luci-theme-kucat
 
 function merge_package(){
@@ -17,15 +18,13 @@ function drop_package(){
 
 rm -rf package; mkdir package
 
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/adguardhome
-merge_package https://github.com/sirpdboy/sirpdboy-package sirpdboy-package/luci-app-adguardhome
-merge_package https://github.com/sirpdboy/sirpdboy-package sirpdboy-package/luci-app-autotimeset
+# merge_package https://github.com/sirpdboy/sirpdboy-package sirpdboy-package/luci-app-autotimeset
 # merge_package https://github.com/haiibo/openwrt-packages openwrt-packages/cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
-merge_package https://github.com/linkease/istore-packages istore-packages/luci-app-homeassistant
-# git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
-git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
+# merge_package https://github.com/linkease/istore-packages istore-packages/luci-app-homeassistant
+git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
+# git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/MilesPoupart/luci-theme-design.git theme/luci-theme-design
 git clone https://github.com/MilesPoupart/luci-app-design-config.git theme/luci-theme-design-config
 git clone https://github.com/uparrows/luci-theme-atmaterial.git theme/luci-theme-atmaterial
@@ -34,9 +33,9 @@ git clone https://github.com/sirpdboy/luci-theme-opentopd.git theme/luci-theme-o
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git theme/luci-theme-infinityfreedom
 git clone https://github.com/thinktip/luci-theme-neobird.git theme/luci-theme-neobird
 git clone https://github.com/sirpdboy/luci-theme-kucat -b js theme/luci-theme-kucat
-chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
+# chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
 
-sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/adguardhome/patches/default_username.patch 
+# sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/adguardhome/patches/default_username.patch 
 sed -i 's/\<control\>/system/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 sed -i 's/\<Control\>/System/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
