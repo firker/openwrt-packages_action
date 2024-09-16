@@ -2,6 +2,7 @@
 rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns
 # rm -rf ./theme/*
 # rm -rf ./luci-app-wrtbwmon-zh wrtbwmon lua-maxminddb smartdns luci-app-poweroff
+rm -rf luci-app-autotimeset rm -rf ./*/v2raya
 rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config ./*/luci-theme-kucat
 
 function merge_package(){
@@ -23,7 +24,8 @@ rm -rf package; mkdir package
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-cpulimit
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 # merge_package https://github.com/linkease/istore-packages istore-packages/luci-app-homeassistant
-merge_package https://github.com/firker/diy-ziyong diy-ziyong/wrtbwmon
+merge_package https://github.com/v2rayA/v2raya-openwrt v2raya-openwrt/v2raya
+# merge_package https://github.com/firker/diy-ziyong diy-ziyong/wrtbwmon
 git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/MilesPoupart/luci-theme-design.git theme/luci-theme-design
