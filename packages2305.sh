@@ -25,7 +25,7 @@ rm -rf package; mkdir package
 # svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner
 # merge_package https://github.com/linkease/istore-packages istore-packages/luci-app-homeassistant
 merge_package https://github.com/v2rayA/v2raya-openwrt v2raya-openwrt/v2raya
-# merge_package https://github.com/firker/diy-ziyong diy-ziyong/wrtbwmon
+merge_package https://github.com/firker/diy-ziyong diy-ziyong/wrtbwmon
 git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/MilesPoupart/luci-theme-design.git theme/luci-theme-design
@@ -39,8 +39,8 @@ git clone https://github.com/sirpdboy/luci-theme-kucat -b js theme/luci-theme-ku
 # chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
 
 # sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/adguardhome/patches/default_username.patch 
-sed -i 's/\<control\>/system/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/\<Control\>/System/g' package/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/\<control\>/system/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
+sed -i 's/\<Control\>/System/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 rm -rf .svn
 rm -f .gitattributes .gitignore
