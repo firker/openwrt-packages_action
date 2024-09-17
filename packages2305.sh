@@ -26,16 +26,16 @@ rm -rf package; mkdir package
 # merge_package https://github.com/linkease/istore-packages istore-packages/luci-app-homeassistant
 merge_package https://github.com/v2rayA/v2raya-openwrt v2raya-openwrt/v2raya
 merge_package https://github.com/firker/diy-ziyong diy-ziyong/wrtbwmon
-git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
+# git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 git clone https://github.com/MilesPoupart/luci-theme-design.git theme/luci-theme-design
-git clone https://github.com/MilesPoupart/luci-app-design-config.git theme/luci-theme-design-config
-git clone https://github.com/uparrows/luci-theme-atmaterial.git theme/luci-theme-atmaterial
-git clone https://github.com/kenzok8/luci-theme-ifit.git theme/luci-theme-ifit
-git clone https://github.com/sirpdboy/luci-theme-opentopd.git theme/luci-theme-opentopd
-git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git theme/luci-theme-infinityfreedom
-git clone https://github.com/thinktip/luci-theme-neobird.git theme/luci-theme-neobird
-git clone https://github.com/sirpdboy/luci-theme-kucat -b js theme/luci-theme-kucat
+git clone https://github.com/MilesPoupart/luci-app-design-config.git theme/luci-app-design-config
+# git clone https://github.com/uparrows/luci-theme-atmaterial.git theme/luci-theme-atmaterial
+# git clone https://github.com/kenzok8/luci-theme-ifit.git theme/luci-theme-ifit
+# git clone https://github.com/sirpdboy/luci-theme-opentopd.git theme/luci-theme-opentopd
+# git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git theme/luci-theme-infinityfreedom
+# git clone https://github.com/thinktip/luci-theme-neobird.git theme/luci-theme-neobird
+# git clone https://github.com/sirpdboy/luci-theme-kucat -b js theme/luci-theme-kucat
 # chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
 
 # sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/adguardhome/patches/default_username.patch 
