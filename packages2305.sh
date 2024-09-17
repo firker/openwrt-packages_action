@@ -3,7 +3,7 @@ rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns
 # rm -rf ./theme/*
 # rm -rf ./luci-app-wrtbwmon-zh wrtbwmon lua-maxminddb smartdns luci-app-poweroff
 rm -rf luci-app-autotimeset rm -rf ./*/v2raya
-rm -rf ./*/luci-theme-design ./*/luci-theme-atmaterial ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config ./*/luci-theme-kucat
+rm -rf ./*/luci-theme-design ./*/luci-theme-design-config ./*/luci-theme-ifit ./*/luci-theme-opentopd ./*/luci-theme-neobird ./*/luci-theme-infinityfreedom ./*/luci-theme-kucat ./*/luci-app-design-config ./*/luci-theme-kucat
 
 function merge_package(){
     repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
@@ -39,8 +39,8 @@ git clone https://github.com/MilesPoupart/luci-app-design-config.git theme/luci-
 # chmod 755 luci-app-adguardhome/root/etc/init.d/AdGuardHome
 
 # sed -i 's/默认用户名密码都是root/默认用户名密码都是admin/g' package/adguardhome/patches/default_username.patch 
-sed -i 's/\<control\>/system/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/\<Control\>/System/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
+# sed -i 's/\<control\>/system/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
+# sed -i 's/\<Control\>/System/g' luci-app-autotimeset/luasrc/controller/autotimeset.lua
 
 rm -rf .svn
 rm -f .gitattributes .gitignore
