@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns
+rm -rf package luci-app-cpulimit luci-app-onliner smartdns luci-app-smartdns luci-lib-ipkg
 # rm -rf ./theme/*
 # rm -rf ./luci-app-wrtbwmon-zh wrtbwmon lua-maxminddb smartdns luci-app-poweroff
 rm -rf luci-app-autotimeset rm -rf ./*/v2raya
