@@ -50,5 +50,3 @@ rm -rf ./*/*/.git
 rm -rf ./*/*/.github
 
 exit 0
-
- 
