@@ -2,15 +2,15 @@ name: Update helloword
 
 on:
   repository_dispatch:
-  release:
-    types: published
+#  release:
+#    types: published
 #  push:
 #    branches:
 #      - main
-  schedule:
-    - cron: 1 0 */3 * *
-  watch:
-    types: started
+#  schedule:
+#    - cron: 1 0 */3 * *
+#  watch:
+#    types: started
   workflow_dispatch:
 
 env:
@@ -55,3 +55,17 @@ jobs:
         git commit -m "update$(TZ='Asia/Shanghai' date +@%Y%m%d)"
         git push --quiet "https://${{ secrets.FTOKEN }}@github.com/firkerword/openwrt-helloworld.git"
  
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@main
+      with:
+        token: ${{ secrets.PAT }}
+        repository: firkerword/openwrt-helloworld
+        event-type: passwall x86-64
+        
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ github.repository }}
+          retain_days: 2
+          keep_minimum_runs: 3

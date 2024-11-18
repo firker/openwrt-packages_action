@@ -1,0 +1,64 @@
+name: build
+
+on:
+#  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'build tag, eg: "插件名称".'
+        required: true
+        default: ''
+        
+env:
+  TZ: Asia/Shanghai
+  
+jobs:
+  build:
+    name: Build ${{ matrix.arch }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - x86_64
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+      - name: Clone packages
+        run: |
+          cd $GITHUB_WORKSPACE
+          chmod +x app.sh
+          $GITHUB_WORKSPACE/app.sh
+
+      - name: Build
+        uses: sbwml/openwrt-gh-action-sdk@go1.20
+        env:
+          ARCH: ${{ matrix.arch }}-openwrt-21.02
+          FEEDNAME: packages_ci
+          PACKAGES: ${{ github.event.inputs.tag }}
+          NO_REFRESH_CHECK: true
+          
+      - name: Time Work
+        run:
+          echo "TAG_TIME=$(date +"%Y%m%d")" >> $GITHUB_ENV
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.arch }}
+          path: bin/packages/${{ matrix.arch }}/packages_ci/*.ipk
+
+      - name: Upload packages
+        uses: ncipollo/release-action@v1
+        with:
+          name: "${{ github.event.inputs.tag }}"
+          token: ${{ secrets.PAT }}
+          allowUpdates: true
+          replacesArtifacts: true
+          tag: "${{ github.event.inputs.tag }}"
+          body: |
+            ${{ github.event.inputs.tag }} for OpemWrt.
+          artifacts: "bin/packages/${{ matrix.arch }}/packages_ci/*.ipk"

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-git clone https://github.com/jerrykuku/luci-app-vssr.git
-git clone https://github.com/jerrykuku/lua-maxminddb.git
-git clone https://github.com/fw876/helloworld.git && mv -n helloworld/luci-app-ssr-plus ./
 git clone https://github.com/immortalwrt/homeproxy.git luci-app-homeproxy
 git clone -b 18.06 https://github.com/zxlhhyccc/luci-app-v2raya.git
 git clone https://github.com/QiuSimons/luci-app-daed daed
