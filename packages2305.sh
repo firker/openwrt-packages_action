@@ -29,8 +29,8 @@ merge_package https://github.com/firker/diy-ziyong diy-ziyong/wrtbwmon
 # git clone https://github.com/sirpdboy/luci-app-autotimeset.git luci-app-autotimeset
 # git clone https://github.com/pymumu/openwrt-smartdns.git smartdns
 # git clone https://github.com/MilesPoupart/luci-theme-design.git theme/luci-theme-design
-git clone https://github.com/MilesPoupart/luci-theme-design.git theme/luci-theme-design
-git clone https://github.com/helmx/luci-theme-design.git theme/luci-app-design-config
+git clone https://github.com/MilesPoupart/luci-app-design-config.git theme/luci-app-design-config
+git clone https://github.com/helmx/luci-theme-design.git theme/luci-app-design
 # git clone https://github.com/uparrows/luci-theme-atmaterial.git theme/luci-theme-atmaterial
 # git clone https://github.com/kenzok8/luci-theme-ifit.git theme/luci-theme-ifit
 # git clone https://github.com/sirpdboy/luci-theme-opentopd.git theme/luci-theme-opentopd
